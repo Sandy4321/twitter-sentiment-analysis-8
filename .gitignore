@@ -1,3 +1,4 @@
 .python
 .env
 .*.sw?
+.ropeproject/
