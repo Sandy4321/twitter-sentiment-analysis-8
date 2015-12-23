@@ -33,3 +33,29 @@ access_token_secret = "<Enter your access token secret here>"
 - [x] Run `$ python twitterstream.py > output.json` at least 3 minutes.
 - [x] If you wish, modify the file to use the [twitter search API](https://dev.twitter.com/docs/api/1.1/get/search/tweets) to search for specific terms. For example, to search for the term *"microsoft"*, you can pass the following url to the `#twitterreq` function: "https://api.twitter.com/1.1/search/tweets.json?q=microsoft", run: `$ python twitterstream.py | python -mjson.tool`
 - [x] The first 20 lines of the twitter data you downloaded from the web (or the first 20 lines from the sample file if you are unable to access the Twitter Developer API due to the requirement to use a mobile phone). You can save the first 20 lines to a file `problem_1_submission.txt` by using the following command: `$ head -n 20 output.json > problem_1_submission.txt`.
+
+
+### Problem 2: Derive the sentiment of each tweet
+
+For this part, you will compute the sentiment of each tweet based on the sentiment scores of the terms in the tweet.
+The sentiment of a tweet is equivalent to the **sum of the sentiment scores** for each term in the tweet.
+You are provided with a skeleton file `tweet_sentiment.py` which accepts two arguments on the command line: a *sentiment file* and a tweet file like the one you generated in **Problem 1**.
+You can run the skeleton program like this: `$ python tweet_sentiment.py AFINN-111.txt output.json`
+The file *AFINN-111.txt* contains a list of pre-computed sentiment scores. Each line in the file contains a word or phrase followed by a sentiment score.
+Each word or phrase that is found in a tweet but not found in *AFINN-111.txt* should be given a sentiment score of 0. See the file *AFINN-README.txt* for more information.
+To use the data in the *AFINN-111.txt* file, you may find it useful to build a dictionary. Note that the *AFINN-111.txt* file format is tab-delimited, meaning that the term and the score are separated by a tab character.
+A tab character can be identified a `\t`.The following snippet may be useful:
+
+```python
+afinnfile = open("AFINN-111.txt")
+scores    = {}                     # initialize an empty dictionary
+for line in afinnfile:
+  term, score  = line.split("\t")  # The file is tab-delimited. "\t" means "tab character"
+  scores[term] = int(score)        # Convert the score to an integer.
+print scores.items()               # Print every (term, score) pair in the dictionary
+```
+
+The data in the tweet file you generated in **Problem 1** is represented as **JSON**, which stands for JavaScript Object Notation.
+It is a simple format for representing nested structures of data --- lists of lists of dictionaries of lists of .... you get the idea.
+Each line of *output.txt* represents a [streaming message](https://dev.twitter.com/docs/streaming-apis/messages).
+Most, but not all, will be tweets. (The skeleton program will tell you how many lines are in the file.)
