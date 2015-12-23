@@ -1,5 +1,16 @@
 # Data Manipulation (week 1)
 
+## Development
+
+
+> To use virtualenv and pip in ubuntu, install via apt-get
+> `$ sudo apt-get install -y python-pip python-virtualenv`
+
+- 1. Create virtualenv with: `$ virtualenv .env`.
+- 2. Use virtualenv with: `$ source ./.env/bin/activate`
+- 3. Install dependencies: `$ pip install -r REQUERIMENTS.txt`
+
+
 ## Assignment
 
 ### Problem 1: Get Twitter Data
