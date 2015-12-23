@@ -19,6 +19,6 @@ api_secret          = "<Enter api secret>"
 access_token_key    = "<Enter your access token key here>"
 access_token_secret = "<Enter your access token secret here>"
 ```
-- [ ] Run `$ python twitterstream.py > output.json` at least 3 minutes.
-- [ ] If you wish, modify the file to use the [twitter search API](https://dev.twitter.com/docs/api/1.1/get/search/tweets) to search for specific terms. For example, to search for the term *"microsoft"*, you can pass the following url to the `#twitterreq` function: "https://api.twitter.com/1.1/search/tweets.json?q=microsoft"
-- [ ] The first 20 lines of the twitter data you downloaded from the web (or the first 20 lines from the sample file if you are unable to access the Twitter Developer API due to the requirement to use a mobile phone). You can save the first 20 lines to a file `problem_1_submission.txt` by using the following command: `$ head -n 20 output.json > problem_1_submission.txt`.
+- [x] Run `$ python twitterstream.py > output.json` at least 3 minutes.
+- [x] If you wish, modify the file to use the [twitter search API](https://dev.twitter.com/docs/api/1.1/get/search/tweets) to search for specific terms. For example, to search for the term *"microsoft"*, you can pass the following url to the `#twitterreq` function: "https://api.twitter.com/1.1/search/tweets.json?q=microsoft", run: `$ python twitterstream.py | python -mjson.tool`
+- [x] The first 20 lines of the twitter data you downloaded from the web (or the first 20 lines from the sample file if you are unable to access the Twitter Developer API due to the requirement to use a mobile phone). You can save the first 20 lines to a file `problem_1_submission.txt` by using the following command: `$ head -n 20 output.json > problem_1_submission.txt`.
